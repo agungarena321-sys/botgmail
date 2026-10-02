@@ -3,7 +3,7 @@ from datetime import datetime
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes, ConversationHandler
 
-TOKEN = '8914846320:AAFvFuI2yvr_dQyF_40_rfSKmCMeKSRIdQ'
+TOKEN = '8914843920:AAElvXYtPOEKAKmVxrhNWdzSeQA4BS2dn5U'
 ADMIN_ID = 6523631884
 ASK_EMAIL = 1
 
