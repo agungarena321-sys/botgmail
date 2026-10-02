@@ -3,7 +3,7 @@ from datetime import datetime
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes, ConversationHandler
 
-TOKEN = "8914833920:AAFvFUul2yvr_dQyF_40_r..." # GANTI JADI TOKEN LENGKAP KAMU YANG DI SENSOR HIJAU TADI
+TOKEN = "8914843920:AAFvFUul2yvr_dQyF_40_rfSKmCMeKSRIdQ..." # GANTI JADI TOKEN LENGKAP KAMU YANG DI SENSOR HIJAU TADI
 ADMIN_ID = 6523631884
 ASK_EMAIL = 1
 
