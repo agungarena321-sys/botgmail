@@ -62,5 +62,6 @@ async def menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if data == 'back_menu':
         sholat = get_sholat()
         await q.edit_message_text(f"{sholat}\n\n⏰ *WIB {datetime.now().strftime('%H:%M')}* - Semarang\nPilih Menu:", reply_markup=get_menu(), parse_mode='Markdown')
-    elif data == 'aturan':
-        txt = "📜 *ATURAN & INFO UMUM*\n\n1️⃣ Wajib logout email dari HP\n2️⃣ Jangan otak-atik akun jika sudah di setor\n3️⃣ No verif & No tap tap\n4️⃣ Dilarang ganti password setelah di setor\n5️⃣ Ketauan curang = Banned/No payment\n6️⃣ Wajib hapus semua keamanan\n7️
+        elif data == 'aturan':
+        txt = 'ATURAN:\n1. Wajib logout\n2. No verif\n3. No ganti pass\n4. Curang = Banned\n5. Pay 24-48 jam via DANA'
+        await q.edit_message_text(txt, reply_markup=get_back())
