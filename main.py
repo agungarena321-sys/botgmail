@@ -30,18 +30,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     conn.commit()
 
     aturan_text = (
-        "📜 *ATURAN & INFO UMUM*\n\n"
-        "1️⃣ Wajib logout email dari HP\n"
-        "2️⃣ Jangan otak-atik akun jika sudah di setor\n"
-        "3️⃣ No verif & No tap tap\n"
-        "4️⃣ Dilarang mengganti password setelah di setor\n"
-        "5️⃣ Ketauan curang = Banned/No payment\n"
-        "6️⃣ Wajib hapus semua keamanan\n"
-        "7️⃣ Review & pay estimasi 24-48 jam (senin - jumat)\n"
-        "8️⃣ Hanya melayani payment via DANA\n\n"
-        "❗ *LARANGAN:*\n"
-        "• Email dot-trick (variasi titik) = DILARANG\n"
-        "• Password SALAH = Banned"
+        "MAINTANCE ⛔"
+     
     )
     text = f"{aturan_text}\n\nWIB\nPilih Menu:"
     await update.message.reply_text(text, reply_markup=get_menu(), parse_mode='Markdown')
@@ -62,6 +52,22 @@ async def menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         row = c.fetchone()
         saldo = row[0] if row else 0
         await query.message.reply_text(f"Dompet: Rp {saldo}\nUntuk Tarik Saldo hubungi Admin. DANA Manual.", reply_markup=get_menu())
+            elif data == "aturan":
+        aturan_text = (
+            "📜 *ATURAN & INFO UMUM*\n\n"
+            "1️⃣ Wajib logout email dari HP\n"
+            "2️⃣ Jangan otak-atik akun jika sudah di setor\n"
+            "3️⃣ No verif & No tap tap\n"
+            "4️⃣ Dilarang mengganti password setelah di setor\n"
+            "5️⃣ Ketauan curang = Banned/No payment\n"
+            "6️⃣ Wajib hapus semua keamanan\n"
+            "7️⃣ Review & pay estimasi 24-48 jam (senin - jumat)\n"
+            "8️⃣ Hanya melayani payment via DANA\n\n"
+            "❗ *LARANGAN:*\n"
+            "• Email dot-trick (variasi titik) = DILARANG\n"
+            "• Password SALAH = Banned"
+        )
+        await query.message.reply_text(aturan_text, reply_markup=get_menu(), parse_mode='Markdown')
     elif data == "riwayat":
         c.execute("SELECT data, status, waktu FROM setoran WHERE user_id=? ORDER BY id DESC LIMIT 10", (user_id,))
         rows = c.fetchall()
