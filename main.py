@@ -13,8 +13,8 @@ c.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, saldo INTEG
 c.execute('CREATE TABLE IF NOT EXISTS setoran (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, data TEXT, status TEXT, waktu TEXT)')
 conn.commit()
 
-def sholat():
-try:
+def sholat():    
+try:    
 r = requests.get('https://api.aladhan.com/v1/timingsByCity?city=Semarang&country=Indonesia&method=20', timeout=5).json()
 t = r['data']['timings']
 return '🕌 JADWAL SHOLAT SEMARANG\n🌙 Subuh '+t['Fajr']+' | ☀️ Dzuhur '+t['Dhuhr']+'\n🌤️ Ashar '+t['Asr']+' | 🌇 Maghrib '+t['Maghrib']+' | 🌃 Isya '+t['Isha']
