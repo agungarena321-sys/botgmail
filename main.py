@@ -28,7 +28,20 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     c.execute("INSERT OR IGNORE INTO users (id) VALUES (?)", (user_id,))
     conn.commit()H:%M:%S')} WIB\nPilih Menu:"
-   text : "📜 ATURAN & INFO UMUM\n\n1️⃣ Wajib logout email dari HP\n2️⃣ Jangan otak-atik akun jika sudah di setor\n3️⃣ No verif & No tap tap\n4️⃣ Dilarang mengganti password setelah di setor\n5️⃣ Ketauan curang = Banned/No payment\n6️⃣ Wajib hapus semua keamanan\n7️⃣ Review & pay estimasi 24-48 jam (senin - jumat)\n8️⃣ Hanya melayani payment via DANA\n\n❗ LARANGAN:\n• Email dot-trick (variasi titik) = DILARANG\n• Password SALAH = Banned"
+   aturan_text = (
+    "📜 **ATURAN & INFO UMUM**\n\n"
+    "1️⃣ Wajib logout email dari HP\n"
+    "2️⃣ Jangan otak-atik akun jika sudah di setor\n"
+    "3️⃣ No verif & No tap tap\n"
+    "4️⃣ Dilarang mengganti password setelah di setor\n"
+    "5️⃣ Ketauan curang = Banned/No payment\n"
+    "6️⃣ Wajib hapus semua keamanan\n"
+    "7️⃣ Review & pay estimasi 24-48 jam (senin - jumat)\n"
+    "8️⃣ Hanya melayani payment via DANA\n\n"
+    "❗ **LARANGAN:**\n"
+    "• Email dot-trick (variasi titik) = DILARANG\n"
+    "• Password SALAH = Banned"
+)
     await update.message.reply_text(text, reply_markup=get_menu())
 
 async def menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
